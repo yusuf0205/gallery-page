@@ -18,10 +18,11 @@
 
         .grid-container {
             display: grid;
-            background-color: black;
+            background-color: #000000;
             height: 100vh;
             gap: 5px;
             padding: 5px;
+            
         }
 
         .gallery-code {
@@ -41,65 +42,67 @@
             color: #d4a017;
         }
 
+        /* Grid item for images */
         .grid-item {
             position: relative;
             overflow: hidden;
             background-size: cover;
             background-position: center;
+            height: 100%;
             opacity: 0;
             transform: scale(0.9);
             animation: scaleFade 0.5s ease-out forwards;
         }
 
-        .grid-item:hover {
-            transform: scale(1.1);
-            /* Zoom effect on hover */
+        /* Adding zoom effect inside the grid-item */
+        .grid-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.5s ease;
         }
 
-        .item1 {
+        .grid-item:hover::before {
+            transform: scale(1.1); /* Zoom-in effect on hover */
+            opacity: 0.8;
+        }
+
+        /* Assigning background images to each grid item */
+        .item1::before {
             background-image: url('item1.png');
-            animation-delay: 0.1s;
         }
 
-        .item2 {
+        .item2::before {
             background-image: url('item2.png');
-            animation-delay: 0.2s;
         }
 
-        .item3 {
+        .item3::before {
             background-image: url('item3.png');
-            animation-delay: 0.3s;
         }
 
-        .item4 {
+        .item4::before {
             background-image: url('item4.png');
-            animation-delay: 0.4s;
         }
 
-        .item5 {
+        .item5::before {
             background-image: url('item5.png');
-            animation-delay: 0.5s;
         }
 
-        .item6 {
+        .item6::before {
             background-image: url('item6.png');
-            animation-delay: 0.6s;
         }
 
-        .item7 {
+        .item7::before {
             background-image: url('item7.png');
-            animation-delay: 0.7s;
         }
 
-        /* 
-        .gallery-img,
-        .text-img,
-        .submenu {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        } */
-
+        /* Keyframe for the initial scale animation */
         @keyframes scaleFade {
             to {
                 opacity: 1;
@@ -116,15 +119,10 @@
 
             .gallery-title {
                 font-family: 'Niagara Solid', sans-serif;
-                /* Use Niagara Solid font */
                 font-size: 150px;
-                /* Specific size */
                 font-weight: 400;
-                /* Font weight */
                 line-height: 160.62px;
-                /* Line height */
                 color: #e53935;
-                /* Red text color */
                 margin-bottom: 10px;
                 text-transform: uppercase;
             }
@@ -137,14 +135,12 @@
                 margin-bottom: 20px;
             }
 
-            /* Text section on the right side of the top gallery */
             .gallery-info {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
                 width: 100%;
-                /* Takes 35% of the width */
                 padding-left: 20px;
                 text-align: left;
             }
@@ -200,19 +196,15 @@
 
         /* Tablet and mobile layout (768px and below) */
         @media screen and (max-width: 768px) {
-
-            /* Grid container setup */
             .grid-container {
                 display: grid;
                 gap: 10px;
                 background-color: #000000;
                 padding: 10px;
                 grid-template-columns: repeat(4, 1fr);
-                /* 4 columns on large screens */
                 height: 100vh;
             }
 
-            /* General styling for grid items */
             .grid-item {
                 text-align: center;
                 padding: 20px;
@@ -221,12 +213,10 @@
                 background-position: center;
                 object-fit: cover;
                 height: 100%;
-                /* Adjust to fit without overflow */
             }
 
             .item1 {
                 grid-column: 1 / span 2;
-                /* Span across 2 columns */
                 grid-row: 1/span 2;
             }
 
@@ -243,13 +233,11 @@
             .item4 {
                 grid-column: 1;
                 grid-row: 3 / span 2;
-                grid-row: 3/ span 2;
             }
 
             .item5 {
                 grid-column: 2;
                 grid-row: 3 / span 2;
-                grid-row: 3/ span 2;
             }
 
             .item6 {
@@ -262,7 +250,6 @@
                 grid-row: 5/ span 2;
             }
 
-            /* Adjust the gallery-info to take up full available space */
             .gallery-info {
                 display: flex;
                 flex-direction: column;
@@ -275,23 +262,14 @@
                 box-sizing: border-box;
 
                 grid-column: 3 / span 2;
-                /* Span across all 4 columns */
-                grid-row: 3 / span 2;
-                /* Span across two rows */
             }
-
 
             .gallery-title {
                 font-family: 'Niagara Solid', sans-serif;
-                /* Use Niagara Solid font */
                 font-size: 70px;
-                /* Specific size */
-                /* Font weight */
                 display: block;
                 line-height: 160.62px;
-                /* Line height */
                 color: #e53935;
-                /* Red text color */
                 margin-bottom: 10px;
                 text-transform: uppercase;
             }
@@ -299,67 +277,23 @@
             .gallery-code {
                 display: flex;
                 flex-direction: column;
-                /* Stack items vertically */
                 text-align: center;
                 word-break: break-word;
-                /* Break long words */
                 margin: 0 auto;
-                /* Center the content */
             }
-
-
-            /* .gallery-img,
-            .text-img,
-            .submenu {
-                max-width: 90%;
-                margin: 10px auto;
-            } */
-
-            /* .gallery-img {
-                height: 40%;
-            }
-
-            .text-img {
-                height: 10%;
-            }
-
-            .submenu {
-                width: 50%;
-            } */
         }
 
         @media screen and (max-width:425px) {
-
             .gallery-title {
                 font-family: 'Niagara Solid', sans-serif;
-                /* Use Niagara Solid font */
                 font-size: 50px;
-                /* Specific size */
-                /* Font weight */
                 display: block;
                 line-height: 160.62px;
-                /* Line height */
                 color: #e53935;
-                /* Red text color */
                 margin-bottom: 10px;
                 text-transform: uppercase;
             }
         }
-
-        /* Further adjustments for very small screens */
-        /* @media screen and (max-width: 480px) {
-            .grid-item {
-                height: 20vh;
-            }
-
-            .item3 {
-                height: 40vh;
-            }
-
-            .gallery-img { height: 30%; }
-            .text-img { height: 8%; }
-            .submenu { width: 60%; }
-        } */
     </style>
 </head>
 
@@ -367,7 +301,6 @@
     <div class="grid-container">
         <div class="grid-item item1"></div>
         <div class="grid-item item2"></div>
-        <!-- Text section on the right -->
         <div class="gallery-info">
             <h1 class="gallery-title">Gallery</h1>
             <p class="gallery-code">qazwsxedcrfvtgbyhnujmikolp1234567890</p>
