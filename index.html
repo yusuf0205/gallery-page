@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,35 +14,35 @@
         html {
             height: 100%;
             margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .section h2 {
+            font-size: 4rem;
         }
 
         .grid-container {
             display: grid;
-            background-color: #000000;
+            background-color: #000; /* Black background */
             height: 100vh;
-            gap: 5px;
+            gap: 2px;
             padding: 5px;
-            
+            margin-top: -50px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        .gallery-code {
-            font-size: 18px;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
-        .view-all {
-            color: #ffca28;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #d4a017;
-        }
-
-        /* Grid item for images */
         .grid-item {
             position: relative;
             overflow: hidden;
@@ -50,11 +50,9 @@
             background-position: center;
             height: 100%;
             opacity: 0;
-            transform: scale(0.9);
-            animation: scaleFade 0.5s ease-out forwards;
+            transition: opacity 0.5s ease;
         }
 
-        /* Adding zoom effect inside the grid-item */
         .grid-item::before {
             content: "";
             position: absolute;
@@ -69,11 +67,16 @@
         }
 
         .grid-item:hover::before {
-            transform: scale(1.1); /* Zoom-in effect on hover */
+            transform: scale(1.1);
             opacity: 0.8;
         }
 
-        /* Assigning background images to each grid item */
+        .gallery-code {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
         .item1::before {
             background-image: url('item1.png');
         }
@@ -102,15 +105,36 @@
             background-image: url('item7.png');
         }
 
-        /* Keyframe for the initial scale animation */
-        @keyframes scaleFade {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .view-all{
+            font-family: 'Niagara Solid', sans-serif; 
+            color: #ffca28; 
+            font-size: 25px;
+            font-weight: bold;
+            text-decoration: none;
         }
 
-        /* Desktop layout */
+        /* Active classes for animations */
+        .active {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) !important;
+        }
+
+        .top-animation {
+            transform: translateY(-100px); /* Slide down from slightly above */
+            transition: transform 0.8s ease, opacity 0.5s ease;
+        }
+
+        .left-animation {
+            transform: translateX(-50px);
+            transition: transform 0.8s ease, opacity 0.5s ease;
+        }
+
+        .right-animation {
+            transform: translateX(50px);
+            transition: transform 0.8s ease, opacity 0.5s ease;
+        }
+
+        /* Maintain original desktop layout */
         @media screen and (min-width: 769px) {
             .grid-container {
                 grid-template-columns: repeat(4, 1fr);
@@ -127,14 +151,6 @@
                 text-transform: uppercase;
             }
 
-            .gallery-code {
-                font-size: 18px;
-                display: flex;
-                align-items: center;
-                color: #ccc;
-                margin-bottom: 20px;
-            }
-
             .gallery-info {
                 display: flex;
                 flex-direction: column;
@@ -143,6 +159,7 @@
                 width: 100%;
                 padding-left: 20px;
                 text-align: left;
+                color: white; /* Set text color to white */
             }
 
             .item1 {
@@ -179,138 +196,142 @@
                 grid-column: 4;
                 grid-row: 2;
             }
-
-            .gallery-img {
-                margin: 10% auto auto 7%;
-            }
-
-            .text-img {
-                margin-top: 3%;
-                margin-left: 7%;
-            }
-
-            .submenu {
-                margin: 8% auto 8% 7%;
-            }
         }
 
-        /* Tablet and mobile layout (768px and below) */
         @media screen and (max-width: 768px) {
             .grid-container {
-                display: grid;
-                gap: 10px;
-                background-color: #000000;
-                padding: 10px;
-                grid-template-columns: repeat(4, 1fr);
-                height: 100vh;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
             }
 
             .grid-item {
-                text-align: center;
-                padding: 20px;
-                font-size: 30px;
-                background-size: cover;
-                background-position: center;
-                object-fit: cover;
-                height: 100%;
+                height: 200px;
             }
 
             .item1 {
                 grid-column: 1 / span 2;
-                grid-row: 1/span 2;
             }
 
             .item2 {
-                grid-column: 3 / span 2;
-                grid-row: 1/ span 2;
+                grid-column: 1;
             }
 
             .item3 {
-                grid-column: 3 / span 2;
-                grid-row: 3 / span 2;
+                grid-column: 2;
             }
 
             .item4 {
                 grid-column: 1;
-                grid-row: 3 / span 2;
             }
 
             .item5 {
                 grid-column: 2;
-                grid-row: 3 / span 2;
             }
 
             .item6 {
                 grid-column: 1 / span 2;
-                grid-row: 5/ span 2;
             }
 
             .item7 {
-                grid-column: 3 / span 2;
-                grid-row: 5/ span 2;
+                grid-column: 2;
             }
 
             .gallery-info {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                width: 100%;
-                height: 100%;
-                padding-left: 20px;
-                text-align: left;
-                box-sizing: border-box;
-
-                grid-column: 3 / span 2;
+                grid-column: 1 / span 2;
+                padding: 20px;
+                text-align: center;
+                color: white; /* Set text color to white */
             }
 
             .gallery-title {
-                font-family: 'Niagara Solid', sans-serif;
                 font-size: 70px;
-                display: block;
-                line-height: 160.62px;
-                color: #e53935;
-                margin-bottom: 10px;
-                text-transform: uppercase;
             }
 
             .gallery-code {
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-                word-break: break-word;
-                margin: 0 auto;
+                font-size: 14px;
+                margin: 10px 0;
             }
         }
 
-        @media screen and (max-width:425px) {
+        @media screen and (max-width: 425px) {
             .gallery-title {
-                font-family: 'Niagara Solid', sans-serif;
                 font-size: 50px;
-                display: block;
-                line-height: 160.62px;
-                color: #e53935;
-                margin-bottom: 10px;
-                text-transform: uppercase;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="grid-container">
-        <div class="grid-item item1"></div>
-        <div class="grid-item item2"></div>
+
+    <!-- Sample section above the gallery -->
+    <div class="section">
+        <h2>Previous Page</h2>
+    </div>
+
+    <!-- Gallery section -->
+    <div class="grid-container" id="gallery-section">
+        <div class="grid-item item1 top-animation"></div>
+        <div class="grid-item item2 top-animation"></div>
         <div class="gallery-info">
             <h1 class="gallery-title">Gallery</h1>
             <p class="gallery-code">qazwsxedcrfvtgbyhnujmikolp1234567890</p>
-            <a href="#" class="view-all">View All &gt;</a>
+            <a class="view-all" href="#next-section">View all &gt;</a>
         </div>
-        <div class="grid-item item4"></div>
-        <div class="grid-item item5"></div>
-        <div class="grid-item item6"></div>
-        <div class="grid-item item7"></div>
+        <div class="grid-item item4 left-animation"></div>
+        <div class="grid-item item5 left-animation"></div>
+        <div class="grid-item item6 right-animation"></div>
+        <div class="grid-item item7 right-animation"></div>
     </div>
+
+    <script>
+        // Intersection Observer to trigger animations when scrolling into the gallery section
+        const gallerySection = document.querySelector('#gallery-section');
+        const topItems = document.querySelectorAll('.top-animation');
+        const leftItems = document.querySelectorAll('.left-animation');
+        const rightItems = document.querySelectorAll('.right-animation');
+
+        const options = {
+            root: null,
+            threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gallerySection.style.opacity = '1'; // Make gallery visible
+                    topItems.forEach(item => {
+                        item.style.opacity = '1';
+                        item.classList.add('active');
+                    });
+                    leftItems.forEach(item => {
+                        item.style.opacity = '1';
+                        item.classList.add('active');
+                    });
+                    rightItems.forEach(item => {
+                        item.style.opacity = '1';
+                        item.classList.add('active');
+                    });
+                } else {
+                    // Reset animations
+                    topItems.forEach(item => {
+                        item.style.opacity = '0';
+                        item.classList.remove('active');
+                    });
+                    leftItems.forEach(item => {
+                        item.style.opacity = '0';
+                        item.classList.remove('active');
+                    });
+                    rightItems.forEach(item => {
+                        item.style.opacity = '0';
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        }, options);
+
+        observer.observe(gallerySection);
+    </script>
+
 </body>
 
 </html>
