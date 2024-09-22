@@ -17,7 +17,7 @@
             scroll-behavior: smooth;
         }
 
-        .section {
+        .charlie-section {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,11 +27,11 @@
             font-size: 2rem;
         }
 
-        .section h2 {
+        .charlie-section h2 {
             font-size: 4rem;
         }
 
-        .grid-container {
+        .charlie-grid-container {
             display: grid;
             background-color: #000; /* Black background */
             height: 100vh;
@@ -43,7 +43,7 @@
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        .grid-item {
+        .charlie-grid-item {
             position: relative;
             overflow: hidden;
             background-size: cover;
@@ -53,7 +53,7 @@
             transition: opacity 0.5s ease;
         }
 
-        .grid-item::before {
+        .charlie-grid-item::before {
             content: "";
             position: absolute;
             top: 0;
@@ -66,46 +66,46 @@
             transition: transform 0.5s ease;
         }
 
-        .grid-item:hover::before {
+        .charlie-grid-item:hover::before {
             transform: scale(1.1);
             opacity: 0.8;
         }
 
-        .gallery-code {
+        .charlie-gallery-code {
             font-size: 18px;
             color: #ccc;
             margin-bottom: 20px;
         }
 
-        .item1::before {
-            background-image: url('item1.png');
+        .charlie-item1::before {
+            background-image: url('charlie-item1.png');
         }
 
-        .item2::before {
-            background-image: url('item2.png');
+        .charlie-item2::before {
+            background-image: url('charlie-item2.png');
         }
 
-        .item3::before {
-            background-image: url('item3.png');
+        .charlie-item3::before {
+            background-image: url('charlie-item3.png');
         }
 
-        .item4::before {
-            background-image: url('item4.png');
+        .charlie-item4::before {
+            background-image: url('charlie-item4.png');
         }
 
-        .item5::before {
-            background-image: url('item5.png');
+        .charlie-item5::before {
+            background-image: url('charlie-item5.png');
         }
 
-        .item6::before {
-            background-image: url('item6.png');
+        .charlie-item6::before {
+            background-image: url('charlie-item6.png');
         }
 
-        .item7::before {
-            background-image: url('item7.png');
+        .charlie-item7::before {
+            background-image: url('charlie-item7.png');
         }
 
-        .view-all{
+        .charlie-view-all{
             font-family: 'Niagara Solid', sans-serif; 
             color: #ffca28; 
             font-size: 25px;
@@ -114,34 +114,34 @@
         }
 
         /* Active classes for animations */
-        .active {
+        .charlie-active {
             opacity: 1 !important;
             transform: translateY(0) scale(1) !important;
         }
 
-        .top-animation {
+        .charlie-top-animation {
             transform: translateY(-100px); /* Slide down from slightly above */
             transition: transform 0.8s ease, opacity 0.5s ease;
         }
 
-        .left-animation {
-            transform: translateX(-50px);
+        .charlie-left-animation {
+            transform: translateY(50px);
             transition: transform 0.8s ease, opacity 0.5s ease;
         }
 
-        .right-animation {
-            transform: translateX(50px);
+        .charlie-right-animation {
+            transform: translateY(50px);
             transition: transform 0.8s ease, opacity 0.5s ease;
         }
 
         /* Maintain original desktop layout */
         @media screen and (min-width: 769px) {
-            .grid-container {
+            .charlie-grid-container {
                 grid-template-columns: repeat(4, 1fr);
                 grid-template-rows: repeat(2, 1fr);
             }
 
-            .gallery-title {
+            .charlie-gallery-title {
                 font-family: 'Niagara Solid', sans-serif;
                 font-size: 150px;
                 font-weight: 400;
@@ -151,7 +151,7 @@
                 text-transform: uppercase;
             }
 
-            .gallery-info {
+            .charlie-gallery-info {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -162,99 +162,99 @@
                 color: white; /* Set text color to white */
             }
 
-            .item1 {
+            .charlie-item1 {
                 grid-column: 1;
                 grid-row: 1;
             }
 
-            .item2 {
+            .charlie-item2 {
                 grid-column: 2;
                 grid-row: 1;
             }
 
-            .item3 {
+            .charlie-item3 {
                 grid-column: 3 / span 2;
                 grid-row: 1;
             }
 
-            .item4 {
+            .charlie-item4 {
                 grid-column: 1;
                 grid-row: 2;
             }
 
-            .item5 {
+            .charlie-item5 {
                 grid-column: 2;
                 grid-row: 2;
             }
 
-            .item6 {
+            .charlie-item6 {
                 grid-column: 3;
                 grid-row: 2;
             }
 
-            .item7 {
+            .charlie-item7 {
                 grid-column: 4;
                 grid-row: 2;
             }
         }
 
         @media screen and (max-width: 768px) {
-            .grid-container {
+            .charlie-grid-container {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: auto;
             }
 
-            .grid-item {
+            .charlie-grid-item {
                 height: 200px;
             }
 
-            .item1 {
+            .charlie-item1 {
                 grid-column: 1 / span 2;
             }
 
-            .item2 {
+            .charlie-item2 {
                 grid-column: 1;
             }
 
-            .item3 {
+            .charlie-item3 {
                 grid-column: 2;
             }
 
-            .item4 {
+            .charlie-item4 {
                 grid-column: 1;
             }
 
-            .item5 {
+            .charlie-item5 {
                 grid-column: 2;
             }
 
-            .item6 {
+            .charlie-item6 {
                 grid-column: 1 / span 2;
             }
 
-            .item7 {
+            .charlie-item7 {
                 grid-column: 2;
             }
 
-            .gallery-info {
+            .charlie-gallery-info {
                 grid-column: 1 / span 2;
                 padding: 20px;
                 text-align: center;
                 color: white; /* Set text color to white */
             }
 
-            .gallery-title {
+            .charlie-gallery-title {
                 font-size: 70px;
             }
 
-            .gallery-code {
+            .charlie-gallery-code {
                 font-size: 14px;
                 margin: 10px 0;
             }
         }
 
         @media screen and (max-width: 425px) {
-            .gallery-title {
+            .charlie-gallery-title {
                 font-size: 50px;
             }
         }
@@ -264,31 +264,31 @@
 <body>
 
     <!-- Sample section above the gallery -->
-    <div class="section">
+    <div class="charlie-section">
         <h2>Previous Page</h2>
     </div>
 
     <!-- Gallery section -->
-    <div class="grid-container" id="gallery-section">
-        <div class="grid-item item1 top-animation"></div>
-        <div class="grid-item item2 top-animation"></div>
-        <div class="gallery-info">
-            <h1 class="gallery-title">Gallery</h1>
-            <p class="gallery-code">qazwsxedcrfvtgbyhnujmikolp1234567890</p>
-            <a class="view-all" href="#next-section">View all &gt;</a>
+    <div class="charlie-grid-container" id="charlie-gallery-section">
+        <div class="charlie-grid-item charlie-item1 charlie-top-animation"></div>
+        <div class="charlie-grid-item charlie-item2 charlie-top-animation"></div>
+        <div class="charlie-gallery-info">
+            <h1 class="charlie-gallery-title">Gallery</h1>
+            <p class="charlie-gallery-code">qazwsxedcrfvtgbyhnujmikolp1234567890</p>
+            <a class="charlie-view-all" href="#next-section">View all &gt;</a>
         </div>
-        <div class="grid-item item4 left-animation"></div>
-        <div class="grid-item item5 left-animation"></div>
-        <div class="grid-item item6 right-animation"></div>
-        <div class="grid-item item7 right-animation"></div>
+        <div class="charlie-grid-item charlie-item4 charlie-left-animation"></div>
+        <div class="charlie-grid-item charlie-item5 charlie-left-animation"></div>
+        <div class="charlie-grid-item charlie-item6 charlie-right-animation"></div>
+        <div class="charlie-grid-item charlie-item7 charlie-right-animation"></div>
     </div>
 
     <script>
         // Intersection Observer to trigger animations when scrolling into the gallery section
-        const gallerySection = document.querySelector('#gallery-section');
-        const topItems = document.querySelectorAll('.top-animation');
-        const leftItems = document.querySelectorAll('.left-animation');
-        const rightItems = document.querySelectorAll('.right-animation');
+        const gallerySection = document.querySelector('#charlie-gallery-section');
+        const topItems = document.querySelectorAll('.charlie-top-animation');
+        const leftItems = document.querySelectorAll('.charlie-left-animation');
+        const rightItems = document.querySelectorAll('.charlie-right-animation');
 
         const options = {
             root: null,
@@ -301,29 +301,29 @@
                     gallerySection.style.opacity = '1'; // Make gallery visible
                     topItems.forEach(item => {
                         item.style.opacity = '1';
-                        item.classList.add('active');
+                        item.classList.add('charlie-active');
                     });
                     leftItems.forEach(item => {
                         item.style.opacity = '1';
-                        item.classList.add('active');
+                        item.classList.add('charlie-active');
                     });
                     rightItems.forEach(item => {
                         item.style.opacity = '1';
-                        item.classList.add('active');
+                        item.classList.add('charlie-active');
                     });
                 } else {
                     // Reset animations
                     topItems.forEach(item => {
                         item.style.opacity = '0';
-                        item.classList.remove('active');
+                        item.classList.remove('charlie-active');
                     });
                     leftItems.forEach(item => {
                         item.style.opacity = '0';
-                        item.classList.remove('active');
+                        item.classList.remove('charlie-active');
                     });
                     rightItems.forEach(item => {
                         item.style.opacity = '0';
-                        item.classList.remove('active');
+                        item.classList.remove('charlie-active');
                     });
                 }
             });
